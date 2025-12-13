@@ -11,64 +11,77 @@ export default function Form() {
 
   return (
     <>
-      <form>
+      <form className="container mt-4 text-white p-5 rounded-4">
         {/*the form title*/}
         <h1>Student Registration</h1>
         <hr></hr>
 
         {/*name section*/}
         <label>Student Name</label>
-        <input
-          type="text"
-          onChange={(e) =>
-            setStudentInfo((prev) => ({ ...prev, name: e.target.value }))
-          }
-        />
+        <div className="mb-3">
+          <input
+            className="rounded-3"
+            type="text"
+            onChange={(e) =>
+              setStudentInfo((prev) => ({ ...prev, name: e.target.value }))
+            }
+          />
+        </div>
 
         {/*parent phon number section*/}
         <label>Parent's Phone Number</label>
-        <input
-          type="tel"
-          placeholder="+20"
-          onChange={(e) =>
-            setStudentInfo((prev) => ({
-              ...prev,
-              parentPhonenumber: e.target.value,
-            }))
-          }
-        />
+        <div className="mb-3">
+          <input
+            className="rounded-3"
+            type="tel"
+            placeholder="+20"
+            onChange={(e) =>
+              setStudentInfo((prev) => ({
+                ...prev,
+                parentPhonenumber: e.target.value,
+              }))
+            }
+          />
+        </div>
 
         {/*age section*/}
         <label>Student Age</label>
-        <input
-          type="tel"
-          onChange={(e) =>
-            setStudentInfo((prev) => ({
-              ...prev,
-              age: e.target.value,
-            }))
-          }
-        />
+        <div className="mb-3">
+          <input
+            className="rounded-3"
+            type="tel"
+            onChange={(e) =>
+              setStudentInfo((prev) => ({
+                ...prev,
+                age: e.target.value,
+              }))
+            }
+          />
+        </div>
 
         {/*concert section*/}
         <label>The parent concerte</label>
-        <input
-          type="checkbox"
-          checked={studentInfo.conserte}
-          onChange={(e) =>
-            setStudentInfo((prev) => ({
-              ...prev,
-              conserte: e.target.checked,
-            }))
-          }
-        />
+        <div className="mb-3">
+          <input
+            type="checkbox"
+            checked={studentInfo.conserte}
+            onChange={(e) =>
+              setStudentInfo((prev) => ({
+                ...prev,
+                conserte: e.target.checked,
+              }))
+            }
+          />
+        </div>
 
         {/*grade section*/}
-        <label>
-          The Grade
-          <select defaultValue="Options"
-          value={studentInfo.grade}
-          name="SelectedGrade"
+        <label>The Grade</label>
+        <div className="mb-3">
+          <select
+            className="rounded-3"
+            defaultValue="Options"
+            value={studentInfo.grade}
+            name="SelectedGrade"
             onChange={(e) =>
               setStudentInfo((prev) => ({
                 ...prev,
@@ -83,8 +96,13 @@ export default function Form() {
             <option value="Fifth">Fifth</option>
             <option value="Sixth">Sixth</option>
           </select>
-        </label>
-        <button type="submit">Submit</button>
+        </div>
+
+        <button
+          className="btn btn-light rounded-5 px-3 py-2 btn-custom"
+          type="submit">
+          Submit
+        </button>
       </form>
     </>
   );
