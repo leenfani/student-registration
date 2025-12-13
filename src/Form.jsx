@@ -18,7 +18,7 @@ export default function Form() {
 
         {/*name section*/}
         <label>Student Name</label>
-        <div className="mb-3">
+        <div className="mb-3 p-1">
           <input
             className="rounded-3"
             type="text"
@@ -30,7 +30,7 @@ export default function Form() {
 
         {/*parent phon number section*/}
         <label>Parent's Phone Number</label>
-        <div className="mb-3">
+        <div className="mb-3 p-1">
           <input
             className="rounded-3"
             type="tel"
@@ -46,7 +46,7 @@ export default function Form() {
 
         {/*age section*/}
         <label>Student Age</label>
-        <div className="mb-3">
+        <div className="mb-3 p-1">
           <input
             className="rounded-3"
             type="tel"
@@ -61,7 +61,7 @@ export default function Form() {
 
         {/*concert section*/}
         <label>The parent concerte</label>
-        <div className="mb-3">
+        <div className="mb-3 p-1">
           <input
             type="checkbox"
             checked={studentInfo.conserte}
@@ -76,7 +76,7 @@ export default function Form() {
 
         {/*grade section*/}
         <label>The Grade</label>
-        <div className="mb-3">
+        <div className="mb-3 p-1">
           <select
             className="rounded-3"
             defaultValue="Options"
