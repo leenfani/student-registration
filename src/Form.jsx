@@ -1,17 +1,32 @@
 import { useState } from "react";
+import WrongInfo from "./WrongInfo";
 
 export default function Form() {
+  const [errors, setErrors] = useState({});
   const [studentInfo, setStudentInfo] = useState({
     name: "",
     parentPhonenumber: "",
     age: "",
-    conserte: false,
-    grade: "",
+    consent: false,
+    grade: "options",
   });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const wrongInfoCheck = WrongInfo(studentInfo);
+    setErrors(wrongInfoCheck);
+
+    if (Object.keys(wrongInfoCheck).length === 0) {
+      console.log("Form submitted", studentInfo);
+    }
+  }
 
   return (
     <>
-      <form className="container mt-4 text-white p-5 rounded-4">
+      <form
+        onSubmit={handleSubmit}
+        className="container mt-4 text-white p-5 rounded-4">
         {/*the form title*/}
         <h1>Student Registration</h1>
         <hr></hr>
@@ -26,6 +41,7 @@ export default function Form() {
               setStudentInfo((prev) => ({ ...prev, name: e.target.value }))
             }
           />
+          {errors.name && <p className="text-danger">{errors.name}</p>}
         </div>
 
         {/*parent phon number section*/}
@@ -42,6 +58,7 @@ export default function Form() {
               }))
             }
           />
+          {errors.phone && <p className="text-danger">{errors.phone}</p>}
         </div>
 
         {/*age section*/}
@@ -57,21 +74,23 @@ export default function Form() {
               }))
             }
           />
+          {errors.age && <p className="text-danger">{errors.age}</p>}
         </div>
 
-        {/*concert section*/}
-        <label>The parent concerte</label>
+        {/*consent section*/}
+        <label>The parent consent</label>
         <div className="mb-3 p-1">
           <input
             type="checkbox"
-            checked={studentInfo.conserte}
+            checked={studentInfo.consent}
             onChange={(e) =>
               setStudentInfo((prev) => ({
                 ...prev,
-                conserte: e.target.checked,
+                consent: e.target.checked,
               }))
             }
           />
+          {errors.consent && <p className="text-danger">{errors.consent}</p>}
         </div>
 
         {/*grade section*/}
@@ -79,7 +98,6 @@ export default function Form() {
         <div className="mb-3 p-1">
           <select
             className="rounded-3"
-            defaultValue="Options"
             value={studentInfo.grade}
             name="SelectedGrade"
             onChange={(e) =>
@@ -96,6 +114,7 @@ export default function Form() {
             <option value="Fifth">Fifth</option>
             <option value="Sixth">Sixth</option>
           </select>
+          {errors.grade && <p className="text-danger">{errors.grade}</p>}
         </div>
 
         <button
