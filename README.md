@@ -2,7 +2,7 @@ Student Registration Form
 
 A modern and responsive React form for student registration with real-time validation and interactive UI elements.
 
-Features
+##Features
 
 Controlled form fields: Name, Phone, Age, Consent, Grade
 
