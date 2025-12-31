@@ -2,7 +2,7 @@ Student Registration Form
 
 A modern and responsive React form for student registration with real-time validation and interactive UI elements.
 
-//Features
+#Features
 
 Controlled form fields: Name, Phone, Age, Consent, Grade
 
@@ -14,13 +14,17 @@ Responsive design using Bootstrap 5
 
 Submit handling: prints valid data to console (ready for backend integration)
 
-//Technologies
+---
+
+#Technologies
 
 React.js – dynamic and interactive UI
 
 Bootstrap 5 – clean and responsive layout
 
 JavaScript (ES6+) – validation logic and interactivity
+
+---
 
 
 //Usage
